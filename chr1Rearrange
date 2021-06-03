@@ -1,0 +1,6 @@
+#cut the first line from the __chr1block1.fa file
+tail -n +2 __chr1block1.fa > __tmp_block1.fa
+#put the 2 blocks of the chr1 insert together (2,1)
+cat __chr1block2 __tmp_block1.fa > __chr1ReOrdered.fa
+#take the reverse compliment of the __chr1ReOrdered.fa file. 
+~/go/bin/faRevComp __chr1ReOrdered.fa > __chr1ReOrdered_RevComp.fa
