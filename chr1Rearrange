@@ -4,3 +4,4 @@ tail -n +2 __chr1block1.fa > __tmp_block1.fa
 cat __chr1block2 __tmp_block1.fa > __chr1ReOrdered.fa
 #take the reverse compliment of the __chr1ReOrdered.fa file. 
 ~/go/bin/faRevComp __chr1ReOrdered.fa > __chr1ReOrdered_RevComp.fa
+##passes QC when going from chr1 insert to chr4 using hg38 ref
