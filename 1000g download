@@ -1,0 +1,5 @@
+#load samtools
+samtools view -h -b *linkFrom1000GdataBrowser* chrN:nnnnn-nnnnnn > samplenameChrN.bam
+samtools index samplenameChrN.bam
+#can check to make sure the right slice was downloaded on UCSC
+#Get FASTA file
