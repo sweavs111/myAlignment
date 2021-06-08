@@ -1,5 +1,21 @@
-#load samtools
-samtools view -h -b *linkFrom1000GdataBrowser* chrN:nnnnn-nnnnnn > samplenameChrN.bam
-samtools index samplenameChrN.bam
-#can check to make sure the right slice was downloaded on UCSC
-#Get FASTA file
+#1000genomes data form Riley, what he used for his multiple alignment (post samToFa step)
+#using faFilter from gonomics to pull out the chr4 region and chr1 region (in separate blocks)
+
+#ran this script for all 1000 genomes .fa files
+
+#extractFa.sh
+
+#!/bin/bash
+
+#SBATCH --mail-type=END,FAIL --mail-user=seth.weaver@duke.edu
+#SBATCH --mem=50G
+
+FA=$1
+PREFIX=$(basename $FA .fa)
+
+/data/lowelab/sethdata/go/bin/faFilter -name 4 -start 118418033 -end 118671410 $1 ${PREFIX}_chr4.fa
+
+/data/lowelab/sethdata/go/bin/faFilter -name 1 -start 242969081 -end 243017216 $1 ${PREFIX}_ch1Block1.fa
+
+/data/lowelab/sethdata/go/bin/faFilter -name 1 -start 243017217 -end 243212177 $1 ${PREFIX}_chr1Block2.fa
+
