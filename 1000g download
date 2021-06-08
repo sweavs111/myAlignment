@@ -1,4 +1,4 @@
-#1000genomes data form Riley, what he used for his multiple alignment (post samToFa step)
+#1000genomes and denisova/neanderthal data form Riley, what he used for his multiple alignment (post samToFa step)
 #using faFilter from gonomics to pull out the chr4 region and chr1 region (in separate blocks)
 
 #ran this script for all 1000 genomes .fa files
