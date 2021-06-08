@@ -19,3 +19,27 @@ PREFIX=$(basename $FA .fa)
 
 /data/lowelab/sethdata/go/bin/faFilter -name 1 -start 243017217 -end 243212177 $1 ${PREFIX}_chr1Block2.fa
 
+Take reverse compliment with gonomics software
+#reorderRevComp.sh
+
+#!/bin/sh
+
+BLOCK1=$1
+BLOCK2=$2
+
+PREFIX=$(basename $1 Block1.fa)
+PREFIX1=$(basename $1 .fa)
+PREFIX2=$(basename $2 .fa)
+
+wc -c ${PREFIX1}.fa
+wc -c ${PREFIX2}.fa
+
+#cut the name line from block1
+tail -n +2 $1 > ${PREFIX1}_cut.fa
+
+#put the blocks in order
+cat ${PREFIX2}.fa ${PREFIX1}_cut.fa > ${PREFIX}Reordered.fa
+
+wc -c ${PREFIX}Reordered.fa
+
+/data/lowelab/sethdata/go/bin/faRevComp ${PREFIX}Reordered.fa ${PREFIX}ReorderedRevComp.fa
