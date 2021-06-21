@@ -1,0 +1,14 @@
+##using the EMBOSS/6.6.0 module on DCC
+module load EMBOSS/6.6.0
+
+##shell script to run the embooss stretcher function "runEmbossStretcher.sh"
+
+#!/bin/bash
+#SBATCH --mem=60G
+#SBATCH --mail-type=END,FAIL --mail-user=seth.weaver@duke.edu
+
+module load EMBOSS/6.6.0
+
+stretcher -asequence hg38chr4Insert.fa -bsequence hg38chr1reOrdered_revComp.fa -outfile duplicationAlign_fasta.stretcher -aformat fasta
+
+echo done
