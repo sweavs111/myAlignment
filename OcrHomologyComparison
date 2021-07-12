@@ -1,0 +1,4 @@
+# 500bp SS frags (Hg38, chr4)
+# BLAT to get chr1 homology AND panTro6 homology
+# align with EMBOSS stretcher
+# manually remove gaps from similarity calculations
